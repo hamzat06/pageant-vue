@@ -1,6 +1,12 @@
 <template>
   <div class="w-full p-8 lg:w-1/2">
-    <h2 class="text-2xl font-semibold text-gray-700 text-center">Brand</h2>
+    <div>
+      <img
+        alt=""
+        src="@/assets/logo.png"
+        class="w-24 h-24 md:w-48 md:h-48 mx-auto"
+      />
+    </div>
     <p class="text-xl text-gray-600 text-center">Welcome back!</p>
     <a
       href="#"

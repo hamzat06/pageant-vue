@@ -1,7 +1,7 @@
 <template>
   <div
     id="toast-success"
-    class="absolute top-5 right-5 flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800 z-50"
+    class="fixed top-5 right-5 flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800 z-100"
     role="alert"
     v-if="type === 'success'"
   >
@@ -45,7 +45,7 @@
   </div>
   <div
     id="toast-danger"
-    class="absolute top-5 right-5 flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+    class="fixed top-5 right-5 flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800 z-100"
     role="alert"
     v-else-if="type === 'delete'"
   >
@@ -89,7 +89,7 @@
   </div>
   <div
     id="toast-warning"
-    class="absolute top-5 right-5 flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+    class="fixed top-5 right-5 flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800 z-100"
     role="alert"
     v-else
   >
@@ -151,7 +151,7 @@ export default {
     closeAlertTimeout() {
       setTimeout(() => {
         this.$store.dispatch("clearAlert");
-      }, 5000);
+      }, 3000);
     },
   },
 };

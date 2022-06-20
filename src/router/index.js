@@ -40,6 +40,46 @@ const router = createRouter({
       name: "dashboard",
       component: () => import("../views/DashboardView.vue"),
     },
+    {
+      path: "/mentors",
+      name: "mentors",
+      component: () => import("../views/MentorView.vue"),
+      children: [
+        {
+          path: "",
+          redirect: "/mentors/judges",
+        },
+        {
+          path: "judges",
+          name: "judges",
+          component: () => import("../components/mentor/JudgesComponent.vue"),
+        },
+        {
+          path: "team",
+          name: "team",
+          component: () => import("../components/mentor/JudgesComponent.vue"),
+        },
+        {
+          path: "judges/:name",
+          name: "mentor",
+        },
+      ],
+    },
+    {
+      path: "/contestants",
+      name: "contestants",
+      component: () => import("../views/ContestantView.vue"),
+    },
+    {
+      path: "/news",
+      name: "news",
+      component: () => import("../views/NewsView.vue"),
+    },
+    {
+      path: "/faqs",
+      name: "faqs",
+      component: () => import("../views/FaqView.vue"),
+    },
   ],
 });
 

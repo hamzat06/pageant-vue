@@ -1,29 +1,43 @@
 <template>
   <nav
-    class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800"
+    class="border bg-white w-full border-gray-00 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800 z-10"
+    :class="{
+      'absolute top-0 left-0 bg-transparent border-0 homeNav':
+        this.$route.name === 'home',
+      'sticky top-0': this.$route.name !== 'home',
+    }"
   >
     <div
       class="container max-w-7xl flex flex-wrap justify-between items-center mx-auto"
     >
       <router-link to="/" class="flex items-center">
-        <img src="@/assets/logo.png" class="h-48 w-48" alt="Flowbite Logo" />
+        <img
+          src="@/assets/logo.png"
+          class="h-48 w-48"
+          alt="Dynamic pageant logo"
+          :class="{
+            'h-24 w-24': this.$route.name === 'dashboard' || 'register || login',
+          }"
+        />
       </router-link>
       <div class="flex md:order-2">
-        <a
-          type="button"
-          class="text-white cursor-pointer bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm lg:text-lg px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
-          @click="logout"
-          v-if="isLoggedIn"
-        >
-          Sign out
-        </a>
         <router-link
-          to="/auth/register"
+          to="/auth"
+          type="button"
+          class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm lg:text-lg px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+          v-if="isLoggedIn"
+          @click="logout"
+        >
+          Log Out
+        </router-link>
+
+        <router-link
+          to="/auth"
           type="button"
           class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm lg:text-lg px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           v-else
         >
-          Get started
+          Sign In
         </router-link>
         <button
           data-collapse-toggle="mobile-menu-4"
@@ -75,10 +89,10 @@
             >
           </li>
           <li>
-            <button
+            <a
               id="dropdownNavbarLink"
               data-dropdown-toggle="dropdownNavbar"
-              class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+              class="flex items-center cursor-pointer justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
             >
               Mentors
               <svg
@@ -93,7 +107,7 @@
                   clip-rule="evenodd"
                 ></path>
               </svg>
-            </button>
+            </a>
             <div
               id="dropdownNavbar"
               class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
@@ -103,17 +117,17 @@
                 aria-labelledby="dropdownLargeButton"
               >
                 <li>
-                  <a
-                    href="#"
+                  <router-link
+                    to="/mentors"
                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >Judges</a
+                    >Judges</router-link
                   >
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <router-link
+                    to="/mentors/teams"
                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >Teams</a
+                    >Teams</router-link
                   >
                 </li>
               </ul>
@@ -121,23 +135,38 @@
           </li>
           <li>
             <router-link
+              to="/contestants"
+              class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              aria-current="page"
+              >Contestants</router-link
+            >
+          </li>
+          <li v-if="isLoggedIn">
+            <router-link
+              to="/dashboard"
+              class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              >Dashboard</router-link
+            >
+          </li>
+          <li>
+            <router-link
+              to="/faqs"
+              class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              >FAQs</router-link
+            >
+          </li>
+          <li>
+            <router-link
+              to="/news"
+              class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              >News</router-link
+            >
+          </li>
+          <li>
+            <router-link
               to="/about"
               class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >About</router-link
-            >
-          </li>
-          <li>
-            <router-link
-              to="/"
-              class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-              >Services</router-link
-            >
-          </li>
-          <li>
-            <router-link
-              to="/"
-              class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-              >Contact</router-link
             >
           </li>
         </ul>
@@ -176,3 +205,17 @@ export default {
   },
 };
 </script>
+
+<style>
+.homeNav a {
+  color: #fff !important;
+}
+
+.homeNav a:hover {
+  @apply text-white;
+}
+
+.homeNav #dropdownNavbar a {
+  @apply text-lg text-black !important;
+}
+</style>

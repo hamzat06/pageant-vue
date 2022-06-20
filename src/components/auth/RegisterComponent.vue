@@ -1,7 +1,11 @@
 <template>
   <div class="w-full p-8 lg:w-1/2">
     <div>
-      <img alt="" src="@/assets/logo.png" class="w-48 h-48 mx-auto" />
+      <img
+        alt=""
+        src="@/assets/logo.png"
+        class="w-24 h-24 md:w-48 md:h-48 mx-auto"
+      />
     </div>
     <p class="text-xl text-gray-600 text-center">Create Account!</p>
     <a
