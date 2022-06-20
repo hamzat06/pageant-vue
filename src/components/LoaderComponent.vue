@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fixed left-0 top-0 w-screen h-screen bg-blue-700/50 grid place-items-center"
+    class="fixed left-0 top-0 w-screen h-screen bg-blue-700/50 grid place-items-center z-50"
   >
     <div class="text-center">
       <svg

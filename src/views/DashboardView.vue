@@ -6,6 +6,16 @@
       <SidebarComponent />
     </div>
     <div class="grow">
+      <div class="mb-10 md:mb-5 flex flex-col md:flex-row justify-between">
+        <span class="text-red-700 bg-secondary text-xl font-bold p-2 mb-3 md:mb-0"
+          >Complete your profile and upload your audition video</span
+        >
+        <router-link
+          to="/contestants/1"
+          class="text-lg p-2 w-fit border-b-2 border-gray-500 hover:border-2 hover:border-t-0 font-bold"
+          >Proceed to profile</router-link
+        >
+      </div>
       <ol class="relative border-l border-gray-200 dark:border-gray-700">
         <li class="mb-10 ml-6">
           <span

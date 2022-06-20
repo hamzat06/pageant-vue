@@ -16,7 +16,8 @@
           class="h-48 w-48"
           alt="Dynamic pageant logo"
           :class="{
-            'h-24 w-24': this.$route.name === 'dashboard' || 'register || login',
+            'h-24 w-24':
+              this.$route.name === 'dashboard' || 'register || login',
           }"
         />
       </router-link>

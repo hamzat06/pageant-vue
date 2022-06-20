@@ -71,6 +71,11 @@ const router = createRouter({
       component: () => import("../views/ContestantView.vue"),
     },
     {
+      path: "/contestants/:id",
+      name: "contestant",
+      component: () => import("../components/ContestantComponent.vue"),
+    },
+    {
       path: "/news",
       name: "news",
       component: () => import("../views/NewsView.vue"),
