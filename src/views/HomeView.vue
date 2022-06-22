@@ -58,7 +58,7 @@ export default {
 
 <style>
 .hero-section {
-  background-image: url("https://static.euronews.com/articles/stories/06/51/37/92/1024x538_cmsv2_c70d78de-03aa-5b85-9fee-e5506acf47f7-6513792.jpg");
+  background-image: url("https://i2.wp.com/media.premiumtimesng.com/wp-content/files/2021/05/DSC_0742.jpg?resize=1620%2C1080&ssl=1");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -66,7 +66,7 @@ export default {
 
 .hero-overlay {
   @apply w-full h-full;
-  background-color: rgba(22, 47, 69, 0.6);
+  background-color: rgba(22, 47, 69, 0.5);
 }
 
 .tab-button {
