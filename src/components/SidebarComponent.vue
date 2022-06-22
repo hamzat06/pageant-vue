@@ -1,6 +1,6 @@
 <template>
   <aside
-    class="mx-auto px-10 md:ml-0 md:w-72 mb-10 md:mb-0"
+    class="mx-auto px-0 sm:px-5 md:px-10 md:ml-0 w-full md:w-72 mb-10 md:mb-0"
     aria-label="Sidebar"
   >
     <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
